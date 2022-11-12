@@ -43,6 +43,20 @@ def run():
     topo = MyTopo()
     net = Mininet(topo=topo)
 
+    h1 = net['h1']
+    h2 = net['h2']
+    r1 = net['r1']
+    r2 = net['r2']
+    r3 = net['r3']
+    r4 = net['r4']
+
+    h1.cmd("cd h1;sudo bird -l")
+    h2.cmd("cd h2;bird -l")
+    r1.cmd("cd r1;bird -l")
+    r2.cmd("cd r2;bird -l")
+    r3.cmd("cd r3;bird -l")
+    r4.cmd("cd r4;bird -l")
+
     # Add routing for reaching networks that aren't directly connected
     
     # info(net['r1'].cmd("ip route add 30.0.0.0/24 via 20.0.0.2 dev r1-eth1"))
@@ -70,7 +84,5 @@ def run():
     net.stop()
 
 if __name__ == '__main__':
-    setLogLevel('info')
+    setLogLevel('debug')
     run()
-
-# topos = { 'mytopo': ( lambda: MyTopo() ) }
