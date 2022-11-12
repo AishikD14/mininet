@@ -1,13 +1,3 @@
-"""Custom topology example
-
-Two directly connected switches plus a host for each switch:
-
-   host --- switch --- switch --- host
-
-Adding the 'topos' dict with a key/value pair to generate our newly defined
-topology enables one to pass in '--topo=mytopo' from the command line.
-"""
-
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.node import Node
@@ -55,25 +45,25 @@ def run():
 
     # Add routing for reaching networks that aren't directly connected
     
-    info(net['r1'].cmd("ip route add 30.0.0.0/24 via 20.0.0.2 dev r1-eth1"))
-    info(net['r1'].cmd("ip route add 40.0.0.0/24 via 10.0.0.2 dev r1-eth2"))
-    info(net['r1'].cmd("ip route add 172.16.0.0/24 via 20.0.0.2 dev r1-eth1"))
-    info(net['r1'].cmd("ip route add 172.16.0.0/24 via 10.0.0.2 dev r1-eth2"))
+    # info(net['r1'].cmd("ip route add 30.0.0.0/24 via 20.0.0.2 dev r1-eth1"))
+    # info(net['r1'].cmd("ip route add 40.0.0.0/24 via 10.0.0.2 dev r1-eth2"))
+    # info(net['r1'].cmd("ip route add 172.16.0.0/24 via 20.0.0.2 dev r1-eth1"))
+    # info(net['r1'].cmd("ip route add 172.16.0.0/24 via 10.0.0.2 dev r1-eth2"))
     
-    info(net['r2'].cmd("ip route add 40.0.0.0/24 via 30.0.0.2 dev r2-eth4"))
-    info(net['r2'].cmd("ip route add 10.0.0.0/24 via 20.0.0.1 dev r2-eth1"))
-    info(net['r2'].cmd("ip route add 172.16.0.0/24 via 30.0.0.2 dev r2-eth4"))
-    info(net['r2'].cmd("ip route add 192.168.0.0/24 via 20.0.0.1 dev r2-eth1"))
+    # info(net['r2'].cmd("ip route add 40.0.0.0/24 via 30.0.0.2 dev r2-eth4"))
+    # info(net['r2'].cmd("ip route add 10.0.0.0/24 via 20.0.0.1 dev r2-eth1"))
+    # info(net['r2'].cmd("ip route add 172.16.0.0/24 via 30.0.0.2 dev r2-eth4"))
+    # info(net['r2'].cmd("ip route add 192.168.0.0/24 via 20.0.0.1 dev r2-eth1"))
 
-    info(net['r3'].cmd("ip route add 172.16.0.0/24 via 40.0.0.2 dev r3-eth3"))
-    info(net['r3'].cmd("ip route add 192.168.0.0/24 via 10.0.0.1 dev r3-eth2"))
-    info(net['r3'].cmd("ip route add 30.0.0.0/24 via 40.0.0.2 dev r3-eth3"))
-    info(net['r3'].cmd("ip route add 20.0.0.0/24 via 10.0.0.1 dev r3-eth2"))
+    # info(net['r3'].cmd("ip route add 172.16.0.0/24 via 40.0.0.2 dev r3-eth3"))
+    # info(net['r3'].cmd("ip route add 192.168.0.0/24 via 10.0.0.1 dev r3-eth2"))
+    # info(net['r3'].cmd("ip route add 30.0.0.0/24 via 40.0.0.2 dev r3-eth3"))
+    # info(net['r3'].cmd("ip route add 20.0.0.0/24 via 10.0.0.1 dev r3-eth2"))
     
-    info(net['r4'].cmd("ip route add 20.0.0.0/24 via 30.0.0.1 dev r4-eth4"))
-    info(net['r4'].cmd("ip route add 10.0.0.0/24 via 40.0.0.1 dev r4-eth3"))
-    info(net['r4'].cmd("ip route add 192.168.0.0/24 via 30.0.0.1 dev r4-eth4"))
-    info(net['r4'].cmd("ip route add 192.168.0.0/24 via 40.0.0.1 dev r4-eth3"))
+    # info(net['r4'].cmd("ip route add 20.0.0.0/24 via 30.0.0.1 dev r4-eth4"))
+    # info(net['r4'].cmd("ip route add 10.0.0.0/24 via 40.0.0.1 dev r4-eth3"))
+    # info(net['r4'].cmd("ip route add 192.168.0.0/24 via 30.0.0.1 dev r4-eth4"))
+    # info(net['r4'].cmd("ip route add 192.168.0.0/24 via 40.0.0.1 dev r4-eth3"))
 
     net.start()
     CLI(net)
